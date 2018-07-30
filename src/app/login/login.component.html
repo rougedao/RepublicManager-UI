@@ -1,3 +1,17 @@
-<p>
-  login works!
-</p>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Usuario" value="" required>
+    <mat-error>Usuario é obrigatório</mat-error> 
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Senha" type="password" required>
+    <mat-error>Senha é obrigatório</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input ngModel name="email" matInput type="email" placeholder="Email" required >
+    <mat-hint>Insira seu E-mail</mat-hint>
+    <mat-error>email é obrigatório</mat-error> 
+  </mat-form-field>
+</form>
