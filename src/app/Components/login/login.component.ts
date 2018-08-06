@@ -1,6 +1,7 @@
 import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'republic-login',
   templateUrl: './login.component.html',
@@ -16,5 +17,8 @@ import { Component, OnInit } from '@angular/core';
       .subscribe(response =>
         this.usuarios = response.json());
       }
-  
+      SalvarEditar(){
+        //implementar função de salvar aqui
+        alert("os dados foram salvos");
+      }
   }

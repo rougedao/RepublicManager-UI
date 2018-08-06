@@ -1,4 +1,5 @@
 <form class="example-form">
+<h3>Republic Manager</h3>
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Usuario" value="" required>
     <mat-error>Usuario é obrigatório</mat-error> 
@@ -15,10 +16,6 @@
     <mat-error>email é obrigatório</mat-error> 
   </mat-form-field>
 
-
-  <mat-list>
-    <mat-list-item *ngFor="let usuario of usuarios">{{usuario.login}}</mat-list-item>
-  </mat-list>
-  
+  <button mat-flat-button (click)="SalvarEditar()">Salvar</button>
 </form>
 

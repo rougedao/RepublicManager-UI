@@ -12,6 +12,7 @@ import { NgModule } from '@angular/core';
 
 import {FormsModule} from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
+import { MatButtonModule } from '../../node_modules/@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UsuarioService } from './services/usuario.service';
     FormsModule,
     MatInputModule,
     MatListModule,
+    MatButtonModule,
     HttpModule
   ],
   providers: [
