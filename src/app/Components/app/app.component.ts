@@ -1,4 +1,4 @@
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from '../login/login.component';
 import { Component } from '@angular/core';
 
 @Component({
