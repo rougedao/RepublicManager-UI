@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
   export class LoginComponent implements OnInit {
-    pokemons;
     usuarios:any[];
+    usuario:string;
+    email:string;
+    senha:string;
+
     constructor(private usuarioService:UsuarioService) { }
   
     ngOnInit() {
@@ -19,6 +23,7 @@ import { Component, OnInit } from '@angular/core';
       }
       SalvarEditar(){
         //implementar função de salvar aqui
+        alert(this.usuario+this.senha+this.email)
         alert("os dados foram salvos");
       }
   }

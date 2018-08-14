@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepublicaComponent implements OnInit {
   pokemons;
-  usuarios:any[];
+  usuarios:any[]; 
   constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit() {

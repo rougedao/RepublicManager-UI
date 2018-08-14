@@ -1,21 +1,21 @@
 <form class="example-form">
 <h3>Republic Manager</h3>
+
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Usuario" value="" required>
+    <input [(ngModel)]="usuario"  name="usuario"type="text" matInput placeholder="Usuario" value="" required>
     <mat-error>Usuario é obrigatório</mat-error> 
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Senha" type="password" required>
+    <input [(ngModel)]="senha" name="senha" matInput placeholder="Senha" type="password" required>
     <mat-error>Senha é obrigatório</mat-error>
   </mat-form-field>
 
   <mat-form-field class="example-full-width">
-    <input ngModel name="email" matInput type="email" placeholder="Email" required >
+    <input [(ngModel)]="email" name="email" matInput type="email" placeholder="Email" required >
     <mat-hint>Insira seu E-mail</mat-hint>
     <mat-error>email é obrigatório</mat-error> 
   </mat-form-field>
-
   <button mat-flat-button (click)="SalvarEditar()">Salvar</button>
 </form>
 
