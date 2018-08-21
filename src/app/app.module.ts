@@ -13,13 +13,14 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
+import { DinamicListComponent } from './Components/dinamic-list/dinamic-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RepublicaComponent,
-
+    DinamicListComponent,
   ], 
   imports: [
     BrowserModule,

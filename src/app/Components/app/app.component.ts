@@ -1,3 +1,4 @@
+import { DinamicListComponent } from './../dinamic-list/dinamic-list.component';
 import { LoginComponent } from '../login/login.component';
 import { Component } from '@angular/core';
 
@@ -8,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Bem vindo ao Republica Manager';
+   property1= ["property1","property2","property3"];
 }
