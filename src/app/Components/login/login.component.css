@@ -1,12 +1,18 @@
-form{
-    margin: 25%;
+.centralize {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
 }
+
 button{
-    margin-top: 10%;
-    margin-left: 22%;
-    margin-right: 22%;
+    margin:5px;
 }
+
 h3 {
-    color:#2196f3;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #2196f3;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex;
+  /* Justify Contents to the center */
+  justify-content: center;
+  align-content: center;
 }
