@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Bem vindo ao Republica Manager';
-   property1= ["property1","property2","property3"];
+   Property1= ["property1","property2","property3"];
 }

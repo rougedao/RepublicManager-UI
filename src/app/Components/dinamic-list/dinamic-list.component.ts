@@ -6,14 +6,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./dinamic-list.component.css']
 })
 export class DinamicListComponent implements OnInit {
-  @Input() property1:any[];
-  public property2:any[];
-  public  property3:any[];
+  //The input keyword bellow will define an allias for the input properties
+  @Input('Property1') property1: any[];
+  @Input('Property2') property2: any[];
+  @Input('Property3') property3: any[];
 
   constructor() { }
-
   ngOnInit() {
-    
   }
-
 }
