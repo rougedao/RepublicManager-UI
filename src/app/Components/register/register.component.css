@@ -16,3 +16,10 @@ h3 {
   justify-content: center;
   align-content: center;
 }
+.button{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+}

@@ -1,0 +1,20 @@
+<form class="example-form">
+    <div class="centralize">
+        <img class="logo" src="https://image.ibb.co/ft4j0z/Republic_Manager_copy.png" alt="Republic Manager">
+      <mat-form-field>
+        <input [(ngModel)]="usuario"  name="usuario"type="text" matInput placeholder="Usuario" value="" required>
+        <mat-error>Usuario é obrigatório</mat-error> 
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input [(ngModel)]="senha" name="senha" matInput placeholder="Senha" type="password" required>
+        <mat-error>Senha é obrigatório</mat-error>
+      </mat-form-field>
+    
+    </div>
+    <div class="button">
+      <button mat-flat-button (click)="Login()">Login</button>
+      <button mat-flat-button (click)="NewUser()">Novo Usuário</button>
+    </div>
+    </form>
+    
