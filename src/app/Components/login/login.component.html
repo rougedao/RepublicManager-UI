@@ -1,25 +1,24 @@
 <form class="example-form">
-<h3>Republic Manager</h3>
-
-  <mat-form-field class="centralize">
+<div class="centralize">
+    <img class="logo" src="https://image.ibb.co/hisOAz/Republic_Manager.png" alt="Republic Manager">
+  <mat-form-field>
     <input [(ngModel)]="usuario"  name="usuario"type="text" matInput placeholder="Usuario" value="" required>
     <mat-error>Usuario é obrigatório</mat-error> 
   </mat-form-field>
 
-  <mat-form-field class="centralize">
+  <mat-form-field>
     <input [(ngModel)]="senha" name="senha" matInput placeholder="Senha" type="password" required>
     <mat-error>Senha é obrigatório</mat-error>
   </mat-form-field>
 
-  <mat-form-field class="centralize">
+  <mat-form-field>
     <input [(ngModel)]="email" name="email" matInput type="email" placeholder="Email" required >
     <mat-hint>Insira seu E-mail</mat-hint>
     <mat-error>email é obrigatório</mat-error> 
   </mat-form-field>
-  <div class="centralize">
-    <button mat-flat-button (click)="SalvarEditar()">Login</button>
-    <button mat-flat-button (click)="SalvarEditar()">Registrar</button>
-  </div>
-  
+</div>
+<div class="centralize">
+  <button mat-flat-button (click)="SalvarEditar()">Login</button>
+  <button mat-flat-button (click)="SalvarEditar()">Registrar</button>
+</div>
 </form>
-
