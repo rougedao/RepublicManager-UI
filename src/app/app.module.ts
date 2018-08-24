@@ -1,3 +1,4 @@
+import { MatTableModule } from '@angular/material/table';
 import { RepublicaComponent } from './app/../Components/republica/republica.component';
 import { LoginComponent } from './app/../Components/login/login.component';
 import { AppComponent } from './app/../Components/app/app.component';
@@ -15,6 +16,7 @@ import { UsuarioService } from './services/usuario.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
 import { DinamicListComponent } from './Components/dinamic-list/dinamic-list.component';
 import { RegisterComponent } from './Components/register/register.component';
+import { DinamicTableComponent } from './Components/dinamic-table/dinamic-table.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { RegisterComponent } from './Components/register/register.component';
     RepublicaComponent,
     DinamicListComponent,
     RegisterComponent,
+    DinamicTableComponent,
   ], 
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { RegisterComponent } from './Components/register/register.component';
     MatInputModule,
     MatListModule,
     MatButtonModule,
-    HttpModule
+    HttpModule,
+    MatTableModule
   ],
   providers: [
     UsuarioService
