@@ -14,9 +14,9 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
-import { DinamicListComponent } from './Components/dinamic-list/dinamic-list.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { DinamicTableComponent } from './Components/dinamic-table/dinamic-table.component';
+import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
+import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
 
 @NgModule({
   declarations: [
