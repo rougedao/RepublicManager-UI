@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginComponent implements OnInit {
+  constructor(private usuarioService: UsuarioService) { }
+
   usuarios: Usuario[];
   usuario: Usuario = {
 
@@ -19,8 +21,7 @@ export class LoginComponent implements OnInit {
     senha: "",
     id: 0
   };
-  constructor(private usuarioService: UsuarioService) {
-  }
+  
 
   ngOnInit() {
     this.usuarioService.getUsuarios()
