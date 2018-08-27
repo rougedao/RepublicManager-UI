@@ -12,6 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   usuarios: Usuario[];
   usuario: Usuario = {
+
     login: "",
     nome:"",
     email: "",
