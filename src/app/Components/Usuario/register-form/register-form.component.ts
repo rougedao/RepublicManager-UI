@@ -1,10 +1,10 @@
-import { Usuario } from './../../models/usuario';
+import { Usuario } from '../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register-form.component.html',
+  styleUrls: ['./register-form.component.css']
 })
 export class RegisterComponent implements OnInit {
   usuario:Usuario={

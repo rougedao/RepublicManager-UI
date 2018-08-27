@@ -1,5 +1,5 @@
-import { DinamicListComponent } from './../dinamic-list/dinamic-list.component';
-import { LoginComponent } from '../login/login.component';
+import { DinamicTableComponent } from './../shared/dinamic-table/dinamic-table.component';
+import { DinamicListComponent } from '../shared/dinamic-list/dinamic-list.component';
 import { Component } from '@angular/core';
 
 @Component({

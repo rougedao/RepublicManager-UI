@@ -10,14 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DinamicTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'login', 'senha', 'isAtivo'];
-  usuarios:any[]
+  usuarios: any[]
 
-  constructor(private usuarioService:UsuarioService) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     this.usuarioService.getUsuarios()
-.subscribe(response =>
-  this.usuarios = response.json());
+      .subscribe(response =>
+        this.usuarios = response.json());
   }
-
 }

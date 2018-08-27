@@ -1,13 +1,13 @@
+import { UsuarioService } from '../../../services/usuario.service';
+import { Usuario } from '../../../models/usuario';
 import { FormsModule } from '@angular/forms';
-import { UsuarioService } from './../../services/usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from '../../models/usuario';
 
 
 @Component({
   selector: 'republic-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
 export class LoginComponent implements OnInit {
   usuarios: Usuario[];
