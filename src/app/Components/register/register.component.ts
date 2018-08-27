@@ -1,3 +1,4 @@
+import { Usuario } from './../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  usuario:Usuario={
+    email:"",
+    id:0,
+    login:"",
+    nome:"",
+    senha:""
+  }
   constructor() { }
 
   ngOnInit() {

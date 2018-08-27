@@ -13,8 +13,9 @@ export class LoginComponent implements OnInit {
   usuarios: Usuario[];
   usuario: Usuario = {
     login: "",
-    email: " ",
-    senha: " ",
+    nome:"",
+    email: "",
+    senha: "",
     id: 0
   };
   constructor(private usuarioService: UsuarioService) {
@@ -28,6 +29,9 @@ export class LoginComponent implements OnInit {
 
   SalvarEditar() {
     //implementar função de salvar aqui
+    console.log(this.usuario.login);
+    console.log(this.usuario.email);
+    console.log(this.usuario.senha);
     alert("os dados foram salvos");
   }
 }
