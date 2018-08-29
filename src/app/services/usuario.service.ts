@@ -15,6 +15,7 @@ export class UsuarioService {
   post(usuario:Usuario){
     return this.http.post(this.url,usuario);
   }
-  
-
+  put(usuario:Usuario){
+    return this.http.put(this.url+'/'+5/*usuario.Id*/,usuario )
+  }
 }
