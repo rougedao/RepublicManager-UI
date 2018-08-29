@@ -1,3 +1,5 @@
+import { AppErrorHandler } from './global-error-handler';
+import { ErrorHandler } from '@angular/core';
 import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
 import { RepublicaComponent } from './Components/Republic/republica-form/republica-form.component';
 import { MatTableModule } from '@angular/material/table';
@@ -17,6 +19,7 @@ import { MatButtonModule } from '../../node_modules/@angular/material/button';
 import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
 import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
 import { LoginComponent } from './Components/Usuario/login-form/login-form.component';
+import { errorHandler } from '@angular/platform-browser/src/browser';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import { LoginComponent } from './Components/Usuario/login-form/login-form.compo
     MatTableModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    {provide:ErrorHandler,useClass:AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })
