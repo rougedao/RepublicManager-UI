@@ -14,26 +14,25 @@ export class LoginComponent implements OnInit {
 
   usuarios: Usuario[];
   usuario: Usuario = {
-
-    login: "",
-    nome:"",
-    email: "",
-    senha: "",
-    id: 0
+    Login: "",
+    Nome:"",
+    Email: "",
+    Senha: "",
+    Id: 0
   };
   
 
   ngOnInit() {
-    this.usuarioService.getUsuarios()
-      .subscribe(response =>
+    this.usuarioService.get()
+      .subscribe(response =>  
         this.usuarios = response.json());
   }
 
   SalvarEditar() {
     //implementar função de salvar aqui
-    console.log(this.usuario.login);
-    console.log(this.usuario.email);
-    console.log(this.usuario.senha);
+    console.log(this.usuario.Login);
+    console.log(this.usuario.Email);
+    console.log(this.usuario.Senha);
     alert("os dados foram salvos");
   }
 }

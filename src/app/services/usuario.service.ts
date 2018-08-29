@@ -1,3 +1,4 @@
+import { Usuario } from './../models/usuario';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +8,13 @@ import { Injectable } from '@angular/core';
 export class UsuarioService {
 
   constructor(private http:Http) { }
-  getUsuarios(){
-    return this.http.get('https://localhost:44327/api/usuario');
+  private url = 'https://localhost:44327/api/usuario';
+  get(){
+    return this.http.get(this.url);
   }
+  post(usuario:Usuario){
+    return this.http.post(this.url,usuario);
+  }
+  
+
 }

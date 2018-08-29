@@ -1,5 +1,6 @@
 import { Usuario } from '../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../../../services/usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -8,21 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   usuario:Usuario={
-    email:"",
-    id:0,
-    login:"",
-    nome:"",
-    senha:""
+    Email:"",
+    Id:0,
+    Login:"",
+    Nome:"",
+    Senha:""
   }
-  constructor() { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
   }
   Login(){
-    alert("Você logou!");
+    console.log(this.usuario);
   }
   NewUser(){
-    alert("aqui você deve ser redirecionado para a pagina de registrar novo usuário");
+    this.usuarioService.post(this.usuario)
+    .subscribe( response =>
+      console.log(response.json()),
+      ()=>alert(Response)); 
   }
 
 }

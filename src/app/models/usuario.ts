@@ -1,7 +1,11 @@
 export class Usuario{
-    id: number;
-    nome:string;
-    login: string;
-    senha :string;
-    email:string;
+    Id:number;
+    Login:string;
+    Nome:string;
+    Senha:string;
+    DataFinalContrato?:Date;
+    ContaId?:number;
+    RepublicaId?:number;
+    Email:string;
+
 }
