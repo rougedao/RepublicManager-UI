@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./republica-form.component.css']
 })
 export class RepublicaComponent implements OnInit {
-  usuarios:any[]; 
-  constructor(private usuarioService:UsuarioService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.usuarioService.getAll()
-    .subscribe(response =>
-      this.usuarios = response.json());
     }
 
 }

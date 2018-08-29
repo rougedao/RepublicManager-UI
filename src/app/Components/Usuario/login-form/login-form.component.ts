@@ -1,3 +1,5 @@
+import { BadInput } from './../../../models/error classes/bad-input';
+import { NotFoundError } from './../../../models/error classes/not-found-error';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Usuario } from '../../../models/usuario';
 import { FormsModule } from '@angular/forms';
@@ -24,9 +26,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.usuarioService.getAll()
-      .subscribe(response =>  
-        // this.usuarios = response.json());
-        console.log(response.json()));
+      .subscribe(
+        response =>  
+        this.usuarios = response.json(),
+        error =>{
+        if(error instanceof BadInput)
+          alert('Não foi possível realizar essa operação')
+          else{
+            alert('An ')
+          }});
   }
 
   SalvarEditar() {

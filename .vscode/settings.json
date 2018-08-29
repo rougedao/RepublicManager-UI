@@ -11,7 +11,6 @@
     "tslint.json": true,
     ".vscode": true,
     "e2e": true,
-    "node_modules": true,
     "src\\polyfills.ts": true,
     "src\\main.ts": true,
     "src\\karma.conf.js": true,
@@ -20,6 +19,7 @@
     "src\\tsconfig.spec.json": true,
     "src\\tslint.json": true,
     "src\\browserslist": true,
-    "src\\favicon.ico": true
+    "src\\favicon.ico": true,
+    "node_modules": true
   }
 }
