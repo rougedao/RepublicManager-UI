@@ -16,6 +16,9 @@ export class UsuarioService {
     return this.http.post(this.url,usuario);
   }
   put(usuario:Usuario){
-    return this.http.put(this.url+'/'+5/*usuario.Id*/,usuario )
+    return this.http.put(this.url+'/'+usuario.Id,usuario )
+  }
+  delete(usuario:Usuario){
+    return this.http.delete(this.url+'/'+usuario.Id)
   }
 }

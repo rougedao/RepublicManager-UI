@@ -23,14 +23,10 @@ export class RegisterComponent implements OnInit {
     console.log(this.usuario);
   }
   NewUser(){
-    // this.usuarioService.post(this.usuario)
-    // .subscribe( response =>
-    //   console.log(response.json()),
-    //   ()=>alert(Response)); 
-    this.usuarioService.put(this.usuario)
+    this.usuarioService.post(this.usuario)
     .subscribe( response =>
-        console.log(response.json()),
-        ()=>alert(Response)); 
+      console.log(response.json()),
+      ()=>alert(Response)); 
   }
 
 }
