@@ -11,7 +11,7 @@ export class RepublicaComponent implements OnInit {
   constructor(private usuarioService:UsuarioService) { }
 
   ngOnInit() {
-    this.usuarioService.get()
+    this.usuarioService.getAll()
     .subscribe(response =>
       this.usuarios = response.json());
     }

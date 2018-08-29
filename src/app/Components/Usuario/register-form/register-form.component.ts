@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(
       response =>{
         console.log(response.json());
-      };
+      });
   }
 
 }

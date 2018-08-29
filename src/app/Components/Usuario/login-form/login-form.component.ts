@@ -23,9 +23,10 @@ export class LoginComponent implements OnInit {
   
 
   ngOnInit() {
-    this.usuarioService.get()
+    this.usuarioService.getAll()
       .subscribe(response =>  
-        this.usuarios = response.json());
+        // this.usuarios = response.json());
+        console.log(response.json()));
   }
 
   SalvarEditar() {
