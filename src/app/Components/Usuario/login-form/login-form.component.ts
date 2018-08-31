@@ -5,7 +5,6 @@ import { Usuario } from '../../../models/usuario';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'republic-login',
   templateUrl: './login-form.component.html',
@@ -23,7 +22,6 @@ export class LoginComponent implements OnInit {
     Id: 0
   };
   
-
   ngOnInit() {
     this.usuarioService.getAll()
       .subscribe(
@@ -31,17 +29,18 @@ export class LoginComponent implements OnInit {
         this.usuarios = response.json(),
         error =>{
         if(error instanceof BadInput)
-          alert('Não foi possível realizar essa operação')
-          else{
-            alert('An ')
-          }});
+          alert('Não foi possível realizar essa operação');
+        if(error instanceof NotFoundError)
+          alert('this ur is not found');
+          else throw error;
+        });
   }
 
   SalvarEditar() {
     //implementar função de salvar aqui
-    console.log(this.usuario.Login);
-    console.log(this.usuario.Email);
-    console.log(this.usuario.Senha);
+    // console.log(this.usuario.Login);
+    // console.log(this.usuario.Email);
+    // console.log(this.usuario.Senha);
     alert("os dados foram salvos");
   }
 }
