@@ -23,17 +23,17 @@ export class LoginComponent implements OnInit {
   };
   
   ngOnInit() {
-    this.usuarioService.getAll()
-      .subscribe(
-        response =>  
-        this.usuarios = response.json(),
-        error =>{
-        if(error instanceof BadInput)
-          alert('Não foi possível realizar essa operação');
-        if(error instanceof NotFoundError)
-          alert('this ur is not found');
-          else throw error;
-        });
+    // this.usuarioService.getAll()
+    //   .subscribe(
+    //     response =>  
+    //     this.usuarios = response.json(),
+    //     error =>{
+    //     if(error instanceof BadInput)
+    //       alert('Não foi possível realizar essa operação');
+    //     if(error instanceof NotFoundError)
+    //       alert('this ur is not found');
+    //       else throw error;
+    //     });
   }
 
   SalvarEditar() {
