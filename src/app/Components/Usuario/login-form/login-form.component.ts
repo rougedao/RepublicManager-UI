@@ -1,3 +1,4 @@
+import { RouterModule,Routes } from '@angular/router';
 import { BadInput } from './../../../models/error classes/bad-input';
 import { NotFoundError } from './../../../models/error classes/not-found-error';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -13,7 +14,6 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   constructor(private usuarioService: UsuarioService) { }
 
-  usuarios: Usuario[];
   usuario: Usuario = {
     Login: "",
     Nome:"",
@@ -24,9 +24,7 @@ export class LoginComponent implements OnInit {
   
   ngOnInit() {
     // this.usuarioService.getAll()
-    //   .subscribe(
-    //     response =>  
-    //     this.usuarios = response.json(),
+    //   .subscribe(usuarios =>  this.usuarios = usuarios,
     //     error =>{
     //     if(error instanceof BadInput)
     //       alert('Não foi possível realizar essa operação');
@@ -36,11 +34,16 @@ export class LoginComponent implements OnInit {
     //     });
   }
 
-  SalvarEditar() {
+  AutenticarUsuario() {
     //implementar função de salvar aqui
-    // console.log(this.usuario.Login);
-    // console.log(this.usuario.Email);
-    // console.log(this.usuario.Senha);
-    alert("os dados foram salvos");
+    this.usuarioService.post(this.usuario)
+    .subscribe(usuarios =>  console.log("usuario criado"),
+      error =>{
+      if(error instanceof BadInput)
+        alert('Não foi possível realizar essa operação');
+      if(error instanceof NotFoundError)
+        alert('this ur is not found');
+        else throw error;
+      });
   }
 }

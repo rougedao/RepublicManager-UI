@@ -10,6 +10,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {HttpModule} from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { NgModule } from '@angular/core';
 
@@ -20,6 +21,7 @@ import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic
 import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
 import { LoginComponent } from './Components/Usuario/login-form/login-form.component';
 import { errorHandler } from '@angular/platform-browser/src/browser';
+import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { errorHandler } from '@angular/platform-browser/src/browser';
     DinamicListComponent,
     RegisterComponent,
     DinamicTableComponent,
+    PageNotFoundComponent,
   ], 
   imports: [
     BrowserModule,
@@ -39,7 +42,27 @@ import { errorHandler } from '@angular/platform-browser/src/browser';
     MatListModule,
     MatButtonModule,
     HttpModule,
-    MatTableModule
+    MatTableModule,
+    RouterModule.forRoot([
+      //Always place more specifc routes first, after the initial home page
+      // {path:'profile/:username',component: ProfileComponent} for routing to specif pages
+      {
+        path:'',
+        component:LoginComponent
+      },
+      {
+        path:'login',
+        component: LoginComponent
+      },
+      {
+        path:'register',
+        component: RegisterComponent
+      },
+      {
+        path:'**',
+        component: PageNotFoundComponent
+      }
+    ])   
   ],
   providers: [
     UsuarioService,
