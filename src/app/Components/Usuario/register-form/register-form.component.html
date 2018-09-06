@@ -23,6 +23,6 @@
   <div class="centralize">
     <button mat-flat-button [disabled]="!f.valid" (click)="NewUser()">Novo Usuário</button>
     <!-- Inserir link no text abaixo -->
-    <p>Já tem cadastro? se identifique aqui</p>
+    <p [routerLink]="['/login']" routerLinkActive="router-link-active" >Já tem cadastro? se identifique aqui</p>
   </div>
 </form>
