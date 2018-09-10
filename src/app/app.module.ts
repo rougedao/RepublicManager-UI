@@ -22,6 +22,8 @@ import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-l
 import { LoginComponent } from './Components/Usuario/login-form/login-form.component';
 import { errorHandler } from '@angular/platform-browser/src/browser';
 import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
+import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
+import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PageNotFoundComponent } from './Components/shared/page-not-found/page-n
     RegisterComponent,
     DinamicTableComponent,
     PageNotFoundComponent,
+    RepublicaListComponent,
+    UserNotAuthorizedComponent,
   ], 
   imports: [
     BrowserModule,
@@ -57,6 +61,10 @@ import { PageNotFoundComponent } from './Components/shared/page-not-found/page-n
       {
         path:'register',
         component: RegisterComponent
+      },
+      {
+        path:'republica',
+        component: RepublicaListComponent
       },
       {
         path:'**',

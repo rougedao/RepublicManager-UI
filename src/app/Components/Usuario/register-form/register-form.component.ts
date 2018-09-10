@@ -1,3 +1,4 @@
+import { RouterModule, Router } from '@angular/router';
 import { Usuario } from '../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
@@ -15,19 +16,17 @@ export class RegisterComponent implements OnInit {
     Nome:"",
     Senha:""
   }
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService,private route: Router) { }
 
-  ngOnInit() {
-  }
-  Login(){
-    console.log(this.usuario);
-  }
+  ngOnInit() { }
+  
   NewUser(){
     this.usuarioService.post(this.usuario)
     .subscribe(
       response =>{
         console.log(response.json());
       });
+      this.route.navigate(['republica']);
   }
 
 }

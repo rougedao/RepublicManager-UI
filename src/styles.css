@@ -4,3 +4,9 @@
     background-color: #7685da;
     color: black;
 }
+.centralize {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+  }
+  

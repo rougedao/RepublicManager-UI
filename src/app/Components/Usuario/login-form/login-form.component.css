@@ -1,8 +1,4 @@
-.centralize {
-  display: flex;
-  flex-direction: column;
-  align-content: space-around;
-}
+
 
 button {
   margin: 5px;

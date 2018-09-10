@@ -36,14 +36,14 @@ export class LoginComponent implements OnInit {
 
   AutenticarUsuario() {
     //implementar função de salvar aqui
-    this.usuarioService.post(this.usuario)
-    .subscribe(usuarios =>  console.log("usuario criado"),
-      error =>{
-      if(error instanceof BadInput)
-        alert('Não foi possível realizar essa operação');
-      if(error instanceof NotFoundError)
-        alert('this ur is not found');
-        else throw error;
-      });
+    // this.usuarioService.post(this.usuario)
+    // .subscribe(usuarios =>  console.log("usuario criado"),
+    //   error =>{
+    //   if(error instanceof BadInput)
+    //     alert('Não foi possível realizar essa operação');
+    //   if(error instanceof NotFoundError)
+    //     alert('this ur is not found');
+    //     else throw error;
+    //   });
   }
 }
