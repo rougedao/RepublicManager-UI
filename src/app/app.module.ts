@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
@@ -24,6 +25,8 @@ import { errorHandler } from '@angular/platform-browser/src/browser';
 import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
 import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
 import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
+
+
 
 @NgModule({
   declarations: [
@@ -67,6 +70,10 @@ import { UserNotAuthorizedComponent } from './Components/shared/user-not-authori
         component: RepublicaListComponent
       },
       {
+        path:'UserNotAuthorized',
+        component: UserNotAuthorizedComponent
+      },
+      {
         path:'**',
         component: PageNotFoundComponent
       }
@@ -74,6 +81,7 @@ import { UserNotAuthorizedComponent } from './Components/shared/user-not-authori
   ],
   providers: [
     UsuarioService,
+    AuthService,
     {provide:ErrorHandler,useClass:AppErrorHandler}
   ],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { RouterModule,Routes } from '@angular/router';
 import { BadInput } from './../../../models/error classes/bad-input';
 import { NotFoundError } from './../../../models/error classes/not-found-error';
@@ -12,7 +13,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService,private authenticated: AuthService) { }
 
   usuario: Usuario = {
     Login: "",
@@ -45,5 +46,8 @@ export class LoginComponent implements OnInit {
     //     alert('this ur is not found');
     //     else throw error;
     //   });
+  }
+  loginAuthenticate(){
+    this.authenticated.login();
   }
 }
