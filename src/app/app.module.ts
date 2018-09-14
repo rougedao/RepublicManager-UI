@@ -1,3 +1,5 @@
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from './services/auth.service';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -25,6 +27,7 @@ import { errorHandler } from '@angular/platform-browser/src/browser';
 import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
 import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
 import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 
@@ -39,7 +42,8 @@ import { UserNotAuthorizedComponent } from './Components/shared/user-not-authori
     PageNotFoundComponent,
     RepublicaListComponent,
     UserNotAuthorizedComponent,
-  ], 
+    NavbarComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,39 +54,45 @@ import { UserNotAuthorizedComponent } from './Components/shared/user-not-authori
     MatButtonModule,
     HttpModule,
     MatTableModule,
+    MatToolbarModule,
     RouterModule.forRoot([
-      //Always place more specifc routes first, after the initial home page
+      // Always place more specifc routes first, after the initial home page
       // {path:'profile/:username',component: ProfileComponent} for routing to specif pages
       {
-        path:'',
-        component:LoginComponent
-      },
-      {
-        path:'login',
+        path: '',
         component: LoginComponent
       },
       {
-        path:'register',
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
         component: RegisterComponent
       },
       {
-        path:'republica',
+        path: 'republica',
         component: RepublicaListComponent
       },
       {
-        path:'UserNotAuthorized',
+        path: 'UserNotAuthorized',
         component: UserNotAuthorizedComponent
       },
       {
-        path:'**',
+        path: 'navbar',
+        component: NavbarComponent
+      },
+      {
+        path: '**',
         component: PageNotFoundComponent
       }
-    ])   
+    ]),
+    NgbModule.forRoot()
   ],
   providers: [
     UsuarioService,
     AuthService,
-    {provide:ErrorHandler,useClass:AppErrorHandler}
+    {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

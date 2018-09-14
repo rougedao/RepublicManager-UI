@@ -14,6 +14,7 @@ export class AuthService {
     responseType: 'token id_token',
     redirectUri: 'http://localhost:4200/republica',
     scope: 'openid'
+    
   });
 
   constructor(public router: Router) {}
