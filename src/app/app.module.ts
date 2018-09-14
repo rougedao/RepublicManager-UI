@@ -1,5 +1,4 @@
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from './services/auth.service';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -14,6 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatListModule} from '@angular/material/list';
 import {HttpModule} from '@angular/http';
 import { RouterModule } from '@angular/router';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { NgModule } from '@angular/core';
 
@@ -28,6 +28,7 @@ import { PageNotFoundComponent } from './Components/shared/page-not-found/page-n
 import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
 import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 
 
 
@@ -43,6 +44,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     RepublicaListComponent,
     UserNotAuthorizedComponent,
     NavbarComponent,
+    ShoppingCartComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
     MatButtonModule,
     HttpModule,
     MatTableModule,
-    MatToolbarModule,
+    MatMenuModule,
     RouterModule.forRoot([
       // Always place more specifc routes first, after the initial home page
       // {path:'profile/:username',component: ProfileComponent} for routing to specif pages
@@ -81,6 +83,10 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
       {
         path: 'navbar',
         component: NavbarComponent
+      },
+      {
+        path: 'shoppingCart',
+        component: ShoppingCartComponent
       },
       {
         path: '**',
