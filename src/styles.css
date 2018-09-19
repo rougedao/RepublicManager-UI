@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import "~bootstrap/dist/css/bootstrap.css";
 
 .mat-flat-button[disabled][disabled]{
@@ -11,3 +11,15 @@
     flex-direction: column;
     align-content: space-around;
 }
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

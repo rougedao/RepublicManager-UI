@@ -1,45 +1,59 @@
-<!--  Bootstrap 4 Navbar-->
-<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <a class="navbar-brand" href="#">Republica Manager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item dropdown" ngbDropdown>
-        <a class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ngbDropdownToggle >Dropdown</a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01" ngbDropdownMenu>
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
+<header>
+  <mat-toolbar color="primary">
+    <a class="navbar-brand"> E-Commerce </a>
+    <a class="navbar-brand" [routerLink]="['/shoppingCart']" routerLinkActive="router-link-active">
+      Shopping Cart</a>
+    <button mat-button [matMenuTriggerFor]="menu">Username</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item >My Orders</button>
+      <button mat-menu-item>Manage Orders</button>
+      <button mat-menu-item>Manage Products now</button>
+      <button mat-menu-item>Log Out</button>
+    </mat-menu>
+  </mat-toolbar>
+</header>
 
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<section class="container">
+  <div class="flex-container">
+      <mat-card class="col-md-6 example-card">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Shiba Inu</mat-card-title>
+            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <mat-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+        <mat-card class=" col-md-6 example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Shiba Inu</mat-card-title>
+              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+              <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>LIKE</button>
+              <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
   </div>
-</nav> -->
-<!--  Default started page, css inclused in styles.css -->
-<!-- <div class="container">
-  <div class="starter-template">
-      <h1>Bootstrap starter template</h1>
-      <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-  </div> -->
-  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #b1b1b1;">
-    <a > 0 </a>
-      <a class="navbar-brand"[routerLink]="['/shoppingCart']" routerLinkActive="router-link-active" >Shopping Cart</a>
-      <button mat-button [matMenuTriggerFor]="menu">Username</button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>My Orders</button>
-        <button mat-menu-item>Manage Orders</button>
-        <button mat-menu-item>Manage Products</button>
-        <button mat-menu-item>Log Out</button>
-      </mat-menu>
+</section>
 
-  </nav> 
+<footer></footer>

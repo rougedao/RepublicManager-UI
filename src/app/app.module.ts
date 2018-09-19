@@ -1,4 +1,4 @@
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './services/auth.service';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -7,17 +7,19 @@ import { RepublicaComponent } from './Components/Republic/republica-form/republi
 import { MatTableModule } from '@angular/material/table';
 import { AppComponent } from './app/../Components/app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input';
-import {MatListModule} from '@angular/material/list';
-import {HttpModule} from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { NgModule } from '@angular/core';
 
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
 import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
@@ -29,6 +31,7 @@ import { RepublicaListComponent } from './Components/Republic/republica-list/rep
 import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { environment } from '../environments/environment';
 
 
 
@@ -57,6 +60,8 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
     HttpModule,
     MatTableModule,
     MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
     RouterModule.forRoot([
       // Always place more specifc routes first, after the initial home page
       // {path:'profile/:username',component: ProfileComponent} for routing to specif pages
@@ -98,7 +103,7 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
   providers: [
     UsuarioService,
     AuthService,
-    {provide: ErrorHandler, useClass: AppErrorHandler}
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })
