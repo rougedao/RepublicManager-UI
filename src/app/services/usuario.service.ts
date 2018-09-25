@@ -8,6 +8,6 @@ import { BaseService } from './base.service';
 export class UsuarioService extends BaseService {
   constructor(http: Http) {
     const apiUrl = 'https://localhost:44327/api/usuario';
-    super(apiUrl, http)
+    super(apiUrl, http);
   }
 }

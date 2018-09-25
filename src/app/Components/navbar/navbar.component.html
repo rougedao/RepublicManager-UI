@@ -1,6 +1,8 @@
 <header>
   <mat-toolbar color="primary">
     <a class="navbar-brand"> E-Commerce </a>
+    <a class="navbar-brand" [routerLink]="['/login']" routerLinkActive="router-link-active">
+      Login</a>
     <a class="navbar-brand" [routerLink]="['/shoppingCart']" routerLinkActive="router-link-active">
       Shopping Cart</a>
     <button mat-button [matMenuTriggerFor]="menu">Username</button>
@@ -56,7 +58,7 @@
   </div>
 </section>
 
-<footer class="footer ">
+<footer class="footer">
   <div class="container">
     <span class="text-muted">Place sticky footer content here.</span>
   </div>

@@ -1,4 +1,3 @@
-import { AuthService } from './../../../services/auth.service';
 import { RouterModule, Routes } from '@angular/router';
 import { BadInput } from './../../../models/error classes/bad-input';
 import { NotFoundError } from './../../../models/error classes/not-found-error';
@@ -24,7 +23,7 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
   ]
 })
 export class LoginComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService, private authenticated: AuthService) { }
+  constructor(private usuarioService: UsuarioService) { }
 
   usuario: Usuario = {
     Login: '',
@@ -59,6 +58,5 @@ export class LoginComponent implements OnInit {
     //   });
   }
   loginAuthenticate() {
-    this.authenticated.login();
   }
 }

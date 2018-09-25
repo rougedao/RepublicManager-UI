@@ -45,11 +45,13 @@ export class BaseService {
   }
 
   private handleError(error: Response) {
-    if (error.status === 400)
+    if (error.status === 400) {
       return throwError(new BadInput(error.json()));
+    }
 
-    if (error.status === 404)
+    if (error.status === 404) {
       return throwError(new NotFoundError());
+    }
 
     return throwError(new AppError(error));
   }

@@ -1,5 +1,4 @@
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from './services/auth.service';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
@@ -102,7 +101,6 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     UsuarioService,
-    AuthService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
