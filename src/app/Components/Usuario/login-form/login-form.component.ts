@@ -1,7 +1,9 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Http } from '@angular/http';
+import { RouterModule, Routes, Router } from '@angular/router';
 import { BadInput } from './../../../models/error classes/bad-input';
 import { NotFoundError } from './../../../models/error classes/not-found-error';
 import { UsuarioService } from '../../../services/usuario.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 import { Usuario } from '../../../models/usuario';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -23,8 +25,8 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
   ]
 })
 export class LoginComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService) { }
-
+  constructor(private usuarioService: UsuarioService, private authenticationService: AuthenticationService, private router: Router) { }
+  invalidLogin = true;
   usuario: Usuario = {
     Login: '',
     Nome: '',
@@ -47,16 +49,29 @@ export class LoginComponent implements OnInit {
 
   AutenticarUsuario() {
     // implementar função de salvar aqui
-    // this.usuarioService.post(this.usuario)
-    // .subscribe(usuarios =>  console.log("usuario criado"),
-    //   error =>{
-    //   if(error instanceof BadInput)
+    // this.usuarioService.getAll(this.usuario)
+    // .subscribe(usuarios =>  console.log('usuario criado'),
+    //   error => {
+    //   if (error instanceof BadInput) {
     //     alert('Não foi possível realizar essa operação');
-    //   if(error instanceof NotFoundError)
+    //   }
+    //   if (error instanceof NotFoundError) {
     //     alert('this ur is not found');
-    //     else throw error;
+    //   } else { throw error; }
     //   });
   }
-  loginAuthenticate() {
+  login() {
+    this.authenticationService.post(this.usuario).subscribe( response => {
+      console.log(response);
+      const token = (<any>response).token;
+      localStorage.setItem('jwt', token);
+      console.log(this.invalidLogin = false);
+      this.invalidLogin = false;
+      if ( this.invalidLogin === false ) {
+        this.router.navigate(['/republica']);
+      }
+    }, err => {
+      this.invalidLogin = true;
+    });
   }
 }

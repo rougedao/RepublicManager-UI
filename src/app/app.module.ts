@@ -20,6 +20,7 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
+import { AuthenticationService } from './services/authentication.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
 import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
 import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
@@ -101,6 +102,7 @@ import { environment } from '../environments/environment';
   ],
   providers: [
     UsuarioService,
+    AuthenticationService,
     { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]

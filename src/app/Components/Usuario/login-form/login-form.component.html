@@ -14,7 +14,7 @@
   </mat-form-field>
 </div>
 <div class="centralize">
-  <button mat-flat-button>Login</button>
+  <button mat-flat-button (click)="login()">Login</button>
   <!-- <button type="button" mat-flat-button (click)="loginAuthenticate()">CHECK ME IN!</button> -->
   
   <p>Não possui usuario? <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Cadastre uma nova conta aqui.</a></p>

@@ -5,9 +5,9 @@ import { BaseService } from './base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UsuarioService extends BaseService {
+export class AuthenticationService extends BaseService {
   constructor(http: Http) {
-    const apiUrl = 'http://localhost:44327/api/usuario';
+    const apiUrl = 'http://localhost:61209/api/login';
     super(apiUrl, http);
   }
 }
