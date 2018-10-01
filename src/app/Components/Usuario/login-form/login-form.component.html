@@ -1,23 +1,26 @@
-<form @fade class="example-form">
-<div  class="centralize">
-    <img class="logo" src="assets/imgs/Republic_Manager_copy.png" alt="Republic Manager">
-<h1>Faça o login</h1>
-  <mat-form-field>
-    <input [(ngModel)]="usuario.Email" name="Email" matInput type="email" placeholder="Email"  >
-    <mat-hint>Insira seu E-mail</mat-hint>
-    <mat-error>E-mail é obrigatório</mat-error> 
-  </mat-form-field>
+<div class="container">
+  <form #f="ngForm" @fade class="example-form">
+    <div class="centralize">
+      <img class="logo" src="assets/imgs/Republic_Manager_copy.png" alt="Republic Manager">
+      <h1>Faça o login</h1>
+      <mat-form-field>
+        <input [(ngModel)]="usuario.Email" name="Email" matInput type="email" placeholder="Email">
+        <mat-hint>Insira seu E-mail</mat-hint>
+        <mat-error>E-mail é obrigatório</mat-error>
+      </mat-form-field>
 
-  <mat-form-field>
-    <input [(ngModel)]="usuario.Senha" name="Senha" matInput placeholder="Senha" type="password" >
-    <mat-error>Senha é obrigatório</mat-error>
-  </mat-form-field>
-</div>
-<div class="centralize">
-  <button mat-flat-button (click)="login()">Login</button>
-  <!-- <button type="button" mat-flat-button (click)="loginAuthenticate()">CHECK ME IN!</button> -->
-  
-  <p>Não possui usuario? <a [routerLink]="['/register']" routerLinkActive="router-link-active" >Cadastre uma nova conta aqui.</a></p>
-</div>
+      <mat-form-field>
+        <input [(ngModel)]="usuario.Senha" name="Senha" matInput placeholder="Senha" type="password">
+        <mat-error>Senha é obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="centralize">
+      <button mat-flat-button (click)="login()">Login</button>
+      <div *ngIf="invalidLogin" class="alert alert-danger">Senha ou Usuário incorreto</div>
 
-</form>
+      <p>Não possui usuario? <a [routerLink]="['/register']" routerLinkActive="router-link-active">Cadastre uma nova
+          conta aqui.</a></p>
+    </div>
+
+  </form>
+</div>

@@ -26,7 +26,7 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
 })
 export class LoginComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private authenticationService: AuthenticationService, private router: Router) { }
-  invalidLogin = true;
+  invalidLogin = false;
   usuario: Usuario = {
     Login: '',
     Nome: '',
@@ -35,43 +35,25 @@ export class LoginComponent implements OnInit {
     Id: 0
   };
 
-  ngOnInit() {
-    // this.usuarioService.getAll()
-    //   .subscribe(usuarios =>  this.usuarios = usuarios,
-    //     error =>{
-    //     if(error instanceof BadInput)
-    //       alert('Não foi possível realizar essa operação');
-    //     if(error instanceof NotFoundError)
-    //       alert('this ur is not found');
-    //       else throw error;
-    //     });
-  }
+  ngOnInit() {  }
 
-  AutenticarUsuario() {
-    // implementar função de salvar aqui
-    // this.usuarioService.getAll(this.usuario)
-    // .subscribe(usuarios =>  console.log('usuario criado'),
-    //   error => {
-    //   if (error instanceof BadInput) {
-    //     alert('Não foi possível realizar essa operação');
-    //   }
-    //   if (error instanceof NotFoundError) {
-    //     alert('this ur is not found');
-    //   } else { throw error; }
-    //   });
-  }
   login() {
     this.authenticationService.post(this.usuario).subscribe( response => {
       console.log(response);
-      const token = (<any>response).token;
-      localStorage.setItem('jwt', token);
-      console.log(this.invalidLogin = false);
-      this.invalidLogin = false;
-      if ( this.invalidLogin === false ) {
-        this.router.navigate(['/republica']);
+      if ( response.authenticated === false) {
+        this.invalidLogin = true;
+      } else {
+        this.invalidLogin = false;
+        const token = (<any>response).accessToken;
+        localStorage.setItem('jwt', token);
+        this.router.navigate(['/navbar']);
       }
     }, err => {
       this.invalidLogin = true;
     });
+  }
+  logOut() {
+    localStorage.removeItem('jwt');
+    console.log('Logged Out!');
   }
 }

@@ -1,6 +1,6 @@
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { NotFoundError } from './../models/error classes/not-found-error';
 import { AppError } from './../models/error classes/app-error';
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -11,41 +11,55 @@ import { BadInput } from '../models/error classes/bad-input';
 })
 export class BaseService {
 
-  constructor(private url: string, private http: Http) { }
+  constructor(private url: string, private http: HttpClient) { }
 
-  getAll() {
-    return this.http.get(this.url)
-      .pipe(
-        map(response => response.json()),
-        catchError(this.handleError));
-  }
   getById(Id) {
-    return this.http.get(this.url + '/' + Id)
-      .pipe(
-        map(response => response.json()),
-        catchError(this.handleError));
+    const token = localStorage.getItem('jwt');
+    return this.http.get(this.url + '/' + Id, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      })
+    }).pipe(
+      map(response => response),
+      catchError(this.handleError));
   }
   post(resource) {
-    return this.http.post(this.url, resource)
-      .pipe(
-        map(response => response.json()),
-        catchError(this.handleError));
+    const token = localStorage.getItem('jwt');
+    return this.http.post(this.url, resource, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      })
+    }).pipe(
+      map(response => response),
+      catchError(this.handleError));
   }
   put(resource) {
-    return this.http.put(this.url + '/' + resource.Id, resource)
-      .pipe(
-        map(response => response.json()),
-        catchError(this.handleError));
+    const token = localStorage.getItem('jwt');
+    return this.http.put(this.url + '/' + resource.Id, resource, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      })
+    }).pipe(
+      map(response => response),
+      catchError(this.handleError));
   }
   delete(resource) {
-    return this.http.delete(this.url + '/' + resource.Id)
-      .pipe(
-        map(response => response.json()),
-        catchError(this.handleError));
+    const token = localStorage.getItem('jwt');
+    return this.http.delete(this.url + '/' + resource.Id, {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + token,
+        'Content-Type': 'application/json'
+      })
+    }).pipe(
+      map(response => response),
+      catchError(this.handleError));
   }
   private handleError(error: Response) {
     if (error.status === 400) {
-      return throwError(new BadInput(error.json()));
+      return throwError(new BadInput(error));
     }
 
     if (error.status === 404) {

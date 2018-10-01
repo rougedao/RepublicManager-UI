@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
@@ -57,7 +57,7 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatListModule,
     MatButtonModule,
-    HttpModule,
+    HttpClientModule,
     MatTableModule,
     MatMenuModule,
     MatCardModule,
