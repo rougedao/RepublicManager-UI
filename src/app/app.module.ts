@@ -1,3 +1,4 @@
+import { JwtModule } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
@@ -34,6 +35,10 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
 import { environment } from '../environments/environment';
 
 
+export function tokenGetter() {
+  console.log('jwt : ' + localStorage.getItem('jwt'));
+  return localStorage.getItem('jwt');
+}
 
 @NgModule({
   declarations: [
@@ -62,41 +67,23 @@ import { environment } from '../environments/environment';
     MatMenuModule,
     MatCardModule,
     MatToolbarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        whitelistedDomains: ['localhost:61209'],
+      }
+    }),
     RouterModule.forRoot([
       // Always place more specifc routes first, after the initial home page
       // {path:'profile/:username',component: ProfileComponent} for routing to specif pages
-      {
-        path: '',
-        component: LoginComponent
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'register',
-        component: RegisterComponent
-      },
-      {
-        path: 'republica',
-        component: RepublicaListComponent
-      },
-      {
-        path: 'UserNotAuthorized',
-        component: UserNotAuthorizedComponent
-      },
-      {
-        path: 'navbar',
-        component: NavbarComponent
-      },
-      {
-        path: 'shoppingCart',
-        component: ShoppingCartComponent
-      },
-      {
-        path: '**',
-        component: PageNotFoundComponent
-      }
+      { path: '', component: LoginComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },
+      { path: 'republica', component: RepublicaListComponent },
+      { path: 'UserNotAuthorized', component: UserNotAuthorizedComponent },
+      { path: 'navbar', component: NavbarComponent },
+      { path: 'shoppingCart', component: ShoppingCartComponent },
+      { path: '**', component: PageNotFoundComponent }
     ]),
     NgbModule.forRoot()
   ],

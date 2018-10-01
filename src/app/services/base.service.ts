@@ -14,47 +14,33 @@ export class BaseService {
 
   constructor(private url: string, private http: HttpClient) { }
 
+  getAll() {
+    return this.http.get(this.url)
+    .pipe(
+        map(response => response),
+        catchError(this.handleError));
+  }
   getById(Id) {
-    const token = localStorage.getItem('jwt');
-    return this.http.get(this.url + '/' + Id, {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      })
-    }).pipe(
+    return this.http.get(this.url + '/' + Id)
+    .pipe(
       map(response => response),
       catchError(this.handleError));
   }
   post(resource) {
-    const token = localStorage.getItem('jwt');
-    return this.http.post(this.url, resource, {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      })
-    }).pipe(
+    return this.http.post(this.url, resource)
+    .pipe(
       map(response => response),
       catchError(this.handleError));
   }
   put(resource) {
-    const token = localStorage.getItem('jwt');
-    return this.http.put(this.url + '/' + resource.Id, resource, {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      })
-    }).pipe(
+    return this.http.put(this.url + '/' + resource.Id, resource)
+    .pipe(
       map(response => response),
       catchError(this.handleError));
   }
   delete(resource) {
-    const token = localStorage.getItem('jwt');
-    return this.http.delete(this.url + '/' + resource.Id, {
-      headers: new HttpHeaders({
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json'
-      })
-    }).pipe(
+    return this.http.delete(this.url + '/' + resource.Id)
+    .pipe(
       map(response => response),
       catchError(this.handleError));
   }
@@ -65,7 +51,7 @@ export class BaseService {
     if (error.status === 404) {
       return throwError(new NotFoundError());
     }
-    if (error.status === 501) {
+    if (error.status === 401) {
       return throwError(new NotAuthorizedError());
     }
     return throwError(new AppError(error));

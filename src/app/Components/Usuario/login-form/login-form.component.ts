@@ -27,6 +27,7 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
 export class LoginComponent implements OnInit {
   constructor(private usuarioService: UsuarioService, private authenticationService: AuthenticationService, private router: Router) { }
   invalidLogin = false;
+  InvalidLoginMessage: string;
   usuario: Usuario = {
     Login: '',
     Nome: '',
@@ -39,9 +40,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authenticationService.post(this.usuario).subscribe( response => {
-      console.log(response);
       if ( response.authenticated === false) {
         this.invalidLogin = true;
+        this.InvalidLoginMessage = response.message;
       } else {
         this.invalidLogin = false;
         const token = (<any>response).accessToken;

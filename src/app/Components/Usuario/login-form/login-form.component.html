@@ -16,7 +16,7 @@
     </div>
     <div class="centralize">
       <button mat-flat-button (click)="login()">Login</button>
-      <div *ngIf="invalidLogin" class="alert alert-danger">Senha ou Usuário incorreto</div>
+      <div *ngIf="invalidLogin" class="alert alert-danger">{{InvalidLoginMessage}}</div>
 
       <p>Não possui usuario? <a [routerLink]="['/register']" routerLinkActive="router-link-active">Cadastre uma nova
           conta aqui.</a></p>
