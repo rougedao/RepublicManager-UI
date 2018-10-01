@@ -1,3 +1,4 @@
+import { NotAuthorizedError } from './../models/error classes/not-authorized-error';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { NotFoundError } from './../models/error classes/not-found-error';
 import { AppError } from './../models/error classes/app-error';
@@ -61,11 +62,12 @@ export class BaseService {
     if (error.status === 400) {
       return throwError(new BadInput(error));
     }
-
     if (error.status === 404) {
       return throwError(new NotFoundError());
     }
-
+    if (error.status === 501) {
+      return throwError(new NotAuthorizedError());
+    }
     return throwError(new AppError(error));
   }
 }
