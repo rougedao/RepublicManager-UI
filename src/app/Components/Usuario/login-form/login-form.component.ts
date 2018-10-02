@@ -39,10 +39,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {  }
 
   login() {
+    console.log('commence login process');
     this.authenticationService.post(this.usuario).subscribe( response => {
-      if ( response.authenticated === false) {
+      if ( response['authenticated'] === false) {
         this.invalidLogin = true;
-        this.InvalidLoginMessage = response.message;
+        this.InvalidLoginMessage = response['message'];
       } else {
         this.invalidLogin = false;
         const token = (<any>response).accessToken;

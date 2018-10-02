@@ -1,3 +1,5 @@
+import { AuthGuard } from './security/auth.guard';
+import { BaseService } from './services/base.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppErrorHandler } from './global-error-handler';
@@ -79,10 +81,10 @@ export function tokenGetter() {
       { path: '', component: LoginComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'republica', component: RepublicaListComponent },
+      { path: 'republica', component: RepublicaListComponent, canActivate : [AuthGuard] },
       { path: 'UserNotAuthorized', component: UserNotAuthorizedComponent },
-      { path: 'navbar', component: NavbarComponent },
-      { path: 'shoppingCart', component: ShoppingCartComponent },
+      { path: 'navbar', component: NavbarComponent , canActivate : [AuthGuard] },
+      { path: 'shoppingCart', component: ShoppingCartComponent , canActivate : [AuthGuard] },
       { path: '**', component: PageNotFoundComponent }
     ]),
     NgbModule.forRoot()
@@ -90,7 +92,8 @@ export function tokenGetter() {
   providers: [
     UsuarioService,
     AuthenticationService,
-    { provide: ErrorHandler, useClass: AppErrorHandler }
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { UsuarioService } from './../../../services/usuario.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -10,13 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DinamicTableComponent implements OnInit {
   displayedColumns: string[] = ['id', 'login', 'senha', 'isAtivo'];
-  usuarios: any[]
+  usuarios: any[];
 
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
     this.usuarioService.getAll()
       .subscribe(response =>
-        this.usuarios = response.json());
+        this.usuarios = JSON.parse(JSON.stringify(response)));
   }
 }

@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { NotAuthorizedError } from './../models/error classes/not-authorized-error';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { NotFoundError } from './../models/error classes/not-found-error';
@@ -6,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { BadInput } from '../models/error classes/bad-input';
+import { CanActivate, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'

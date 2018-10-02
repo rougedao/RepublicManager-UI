@@ -9,22 +9,21 @@ import { UsuarioService } from '../../../services/usuario.service';
   styleUrls: ['./register-form.component.css']
 })
 export class RegisterComponent implements OnInit {
-  usuario:Usuario={
-    Email:"",
-    Id:0,
-    Login:"",
-    Nome:"",
-    Senha:""
-  }
-  constructor(private usuarioService: UsuarioService,private route: Router) { }
+  usuario: Usuario = {
+    Email: '',
+    Id: 0,
+    Login: '',
+    Nome: '',
+    Senha: ''
+  };
+  constructor(private usuarioService: UsuarioService, private route: Router) { }
 
   ngOnInit() { }
-  
-  NewUser(){
+  NewUser() {
     this.usuarioService.post(this.usuario)
     .subscribe(
-      response =>{
-        console.log(response.json());
+      response => {
+        console.log(response);
       });
       this.route.navigate(['republica']);
   }
