@@ -1,3 +1,4 @@
+import { RepublicaService } from './services/republica.service';
 import { AuthGuard } from './security/auth.guard';
 import { BaseService } from './services/base.service';
 import { JwtModule } from '@auth0/angular-jwt';
@@ -32,13 +33,12 @@ import { errorHandler } from '@angular/platform-browser/src/browser';
 import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
 import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
 import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
-import { NavbarComponent } from './Components/navbar/navbar.component';
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { environment } from '../environments/environment';
+import { NavbarComponent } from './Components/navbar/navbar.component';
 
 
 export function tokenGetter() {
-  console.log('jwt : ' + localStorage.getItem('jwt'));
   return localStorage.getItem('jwt');
 }
 
@@ -83,17 +83,19 @@ export function tokenGetter() {
       { path: 'register', component: RegisterComponent },
       { path: 'republica', component: RepublicaListComponent, canActivate : [AuthGuard] },
       { path: 'UserNotAuthorized', component: UserNotAuthorizedComponent },
-      { path: 'navbar', component: NavbarComponent , canActivate : [AuthGuard] },
+      { path: 'navbar', component: NavbarComponent, canActivate : [AuthGuard] },
       { path: 'shoppingCart', component: ShoppingCartComponent , canActivate : [AuthGuard] },
       { path: '**', component: PageNotFoundComponent }
     ]),
     NgbModule.forRoot()
   ],
   providers: [
+    // BaseService,
     UsuarioService,
+    RepublicaService,
     AuthenticationService,
-    { provide: ErrorHandler, useClass: AppErrorHandler },
-    AuthGuard
+    AuthGuard,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ],
   bootstrap: [AppComponent]
 })

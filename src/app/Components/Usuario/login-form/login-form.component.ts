@@ -1,3 +1,4 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Http } from '@angular/http';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { BadInput } from './../../../models/error classes/bad-input';
@@ -8,6 +9,7 @@ import { Usuario } from '../../../models/usuario';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, state, style, animate } from '@angular/animations';
+import { stringify } from '@angular/core/src/util';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -25,7 +27,8 @@ import { trigger, transition, state, style, animate } from '@angular/animations'
   ]
 })
 export class LoginComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService, private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private usuarioService: UsuarioService
+    , private authenticationService: AuthenticationService, private router: Router, private jwt: JwtHelperService) { }
   invalidLogin = false;
   InvalidLoginMessage: string;
   usuario: Usuario = {

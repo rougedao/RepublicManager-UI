@@ -1,5 +1,9 @@
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { UsuarioService } from './../../services/usuario.service';
+import { RepublicaService } from '../../services/republica.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { getCurrentQueries } from '@angular/core/src/render3/instructions';
 
 
 @Component({
@@ -8,22 +12,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private usuarioService: UsuarioService) { }
-  nomeUsuario = 'Usuário';
-  ngOnInit() {
-  }
+  constructor(private usuarioService: UsuarioService, private republicaService: RepublicaService
+    , private router: Router, private jwt: JwtHelperService) { }
+  readonly decodedToken = this.jwt.decodeToken(localStorage.getItem('jwt'));
+  readonly currentUser: string = this.decodedToken.unique_name[0];
+  ngOnInit() { }
   logOut() {
     localStorage.removeItem('jwt');
+    this.router.navigate(['/login']);
     console.log('Logged Out!');
-    this.usuarioService.getAll().subscribe( response => {
-      console.log('im here');
+  }
+
+  getUsers() {
+    this.usuarioService.getAll().subscribe(response => {
+      console.log('started calling the usuario api');
       console.log(response);
     });
   }
-  getUsers() {
-    this.usuarioService.getAll().subscribe( response => {
-      console.log('im here');
+
+  getRepublicas() {
+    console.log('Started republica api call');
+    this.republicaService.getAll().subscribe(response => {
       console.log(response);
     });
   }

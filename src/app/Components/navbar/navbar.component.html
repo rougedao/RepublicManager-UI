@@ -5,9 +5,9 @@
       Login</a>
     <a class="navbar-brand" [routerLink]="['/shoppingCart']" routerLinkActive="router-link-active">
       Shopping Cart</a>
-    <button mat-button [matMenuTriggerFor]="menu">{{nomeUsuario}}</button>
+    <button mat-button [matMenuTriggerFor]="menu">{{currentUser}}</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item >My Orders</button>
+      <button mat-menu-item (click)="getRepublicas()">Republica</button>
       <button mat-menu-item>Manage Orders</button>
       <button (click)="getUsers()" mat-menu-item>get users</button>
       <button (click)="logOut()" mat-menu-item>Log Out</button>
