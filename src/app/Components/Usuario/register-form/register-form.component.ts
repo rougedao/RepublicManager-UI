@@ -21,10 +21,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() { }
   NewUser() {
     this.usuarioService.post(this.usuario)
-    .subscribe(
-      response => {
-        console.log(response);
-      });
+    .subscribe();
       this.route.navigate(['republica']);
   }
 

@@ -20,21 +20,5 @@ export class NavbarComponent implements OnInit {
   logOut() {
     localStorage.removeItem('jwt');
     this.router.navigate(['/login']);
-    console.log('Logged Out!');
   }
-
-  getUsers() {
-    this.usuarioService.getAll().subscribe(response => {
-      console.log('started calling the usuario api');
-      console.log(response);
-    });
-  }
-
-  getRepublicas() {
-    console.log('Started republica api call');
-    this.republicaService.getAll().subscribe(response => {
-      console.log(response);
-    });
-  }
-
 }

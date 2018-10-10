@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {  }
 
   login() {
-    console.log('commence login process');
     this.authenticationService.post(this.usuario).subscribe( response => {
       if ( response['authenticated'] === false) {
         this.invalidLogin = true;
@@ -59,6 +58,5 @@ export class LoginComponent implements OnInit {
   }
   logOut() {
     localStorage.removeItem('jwt');
-    console.log('Logged Out!');
   }
 }
