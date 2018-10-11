@@ -7,6 +7,7 @@ import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
 import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
 import { RepublicaComponent } from './Components/Republic/republica-form/republica-form.component';
+import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { AppComponent } from './app/../Components/app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -36,6 +37,7 @@ import { UserNotAuthorizedComponent } from './Components/shared/user-not-authori
 import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { environment } from '../environments/environment';
 import { NavbarComponent } from './Components/navbar/navbar.component';
+import { RoleService } from './services/role.service';
 
 
 export function tokenGetter() {
@@ -66,6 +68,7 @@ export function tokenGetter() {
     MatButtonModule,
     HttpClientModule,
     MatTableModule,
+    MatSelectModule,
     MatMenuModule,
     MatCardModule,
     MatToolbarModule,
@@ -90,9 +93,9 @@ export function tokenGetter() {
     NgbModule.forRoot()
   ],
   providers: [
-    // BaseService,
     UsuarioService,
     RepublicaService,
+    RoleService,
     AuthenticationService,
     AuthGuard,
     { provide: ErrorHandler, useClass: AppErrorHandler }

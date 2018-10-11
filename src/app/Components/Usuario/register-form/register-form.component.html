@@ -1,28 +1,39 @@
-<form #f="ngForm" class="example-form">
-  <div class="centralize">
-    <img class="logo" src="https://image.ibb.co/ft4j0z/Republic_Manager_copy.png" alt="Republic Manager">
-
-
-<h1>Novo Usuario</h1>
-    <mat-form-field>
-      <input [(ngModel)]="usuario.Nome" name="Nome" type="text" matInput placeholder="Seu nome" value="" required>
-      <mat-error>Nome é obrigatório</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input [(ngModel)]="usuario.Email" name="Email" type="email" matInput placeholder="E-mail" value="" required>
-      <mat-error>E-mail é obrigatório</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-      <input [(ngModel)]="usuario.Senha" name="Senha" matInput placeholder="Senha" type="password" required>
-      <mat-error>Senha é obrigatório</mat-error>
-    </mat-form-field>
-
-  </div>
-  <div class="centralize">
-    <button mat-flat-button [disabled]="!f.valid" (click)="NewUser()">Novo Usuário</button>
-    <!-- Inserir link no text abaixo -->
-    <p [routerLink]="['/login']" routerLinkActive="router-link-active" >Já tem cadastro? se identifique aqui</p>
-  </div>
-</form>
+<div class="container">
+  <form #f="ngForm" class="example-form">
+    <div class="centralize">
+      <img class="logo" src="https://image.ibb.co/ft4j0z/Republic_Manager_copy.png" alt="Republic Manager">
+  
+  
+  <h1>Novo Usuario</h1>
+      <mat-form-field>
+        <input [(ngModel)]="usuario.Nome" name="Nome" type="text" matInput placeholder="Seu nome" value="" required>
+        <mat-error>Nome é obrigatório</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input [(ngModel)]="usuario.Email" name="Email" type="email" matInput placeholder="E-mail" value="" required>
+        <mat-error>E-mail é obrigatório</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <input [(ngModel)]="usuario.Senha" name="Senha" matInput placeholder="Senha" type="password" required>
+        <mat-error>Senha é obrigatório</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+         <mat-select placeholder="Permissão">
+          <mat-option *ngFor="let role of roles" [value]="roles.roleName">
+            {{role.roleName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+  
+    </div>
+    <div class="centralize">
+      <button mat-flat-button [disabled]="!f.valid" (click)="NewUser()">Novo Usuário</button>
+      <!-- Inserir link no text abaixo -->
+      <p [routerLink]="['/login']" routerLinkActive="router-link-active" >Já tem cadastro? se identifique aqui</p>
+    </div>
+  </form>
+</div>

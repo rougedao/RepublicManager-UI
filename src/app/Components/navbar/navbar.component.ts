@@ -16,7 +16,9 @@ export class NavbarComponent implements OnInit {
     , private router: Router, private jwt: JwtHelperService) { }
   readonly decodedToken = this.jwt.decodeToken(localStorage.getItem('jwt'));
   readonly currentUser: string = this.decodedToken.unique_name[0];
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.jwt.decodeToken(localStorage.getItem('jwt')));
+  }
   logOut() {
     localStorage.removeItem('jwt');
     this.router.navigate(['/login']);

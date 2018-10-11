@@ -1,7 +1,9 @@
+import { RoleService } from './../../../services/role.service';
 import { RouterModule, Router } from '@angular/router';
 import { Usuario } from '../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
+import { Role } from 'src/app/models/role';
 
 @Component({
   selector: 'app-register',
@@ -16,13 +18,16 @@ export class RegisterComponent implements OnInit {
     Nome: '',
     Senha: ''
   };
-  constructor(private usuarioService: UsuarioService, private route: Router) { }
-
-  ngOnInit() { }
+  roles: Role[];
+  constructor(private usuarioService: UsuarioService, private roleService: RoleService, private route: Router) { }
+  ngOnInit() {
+    this.roleService.getAll().subscribe( response => {
+      this.roles = JSON.parse(JSON.stringify(response));
+    });
+    }
   NewUser() {
     this.usuarioService.post(this.usuario)
     .subscribe();
       this.route.navigate(['republica']);
   }
-
 }
