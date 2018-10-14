@@ -9,5 +9,5 @@ export class Usuario {
     ContaId?: number;
     RepublicaId?: number;
     Email: string;
-    roleId: number;
+    roleIds: number;
 }

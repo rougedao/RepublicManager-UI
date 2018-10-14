@@ -30,7 +30,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { AuthenticationService } from './services/authentication.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
@@ -73,6 +73,7 @@ export function tokenGetter() {
     MatSelectModule,
     MatMenuModule,
     MatCardModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     JwtModule.forRoot({
       config: {

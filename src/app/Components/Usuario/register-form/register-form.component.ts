@@ -4,6 +4,7 @@ import { Usuario } from '../../../models/usuario';
 import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { Role } from 'src/app/models/role';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -19,20 +20,18 @@ export class RegisterComponent implements OnInit {
     Login: '',
     Nome: '',
     Senha: '',
-    roleId: 3
+    roleIds: 0,
   };
-  selectRoleId = this.usuario.roleId;
-
+  selectedRoles = this.usuario.roleIds;
+  permissionControl = new FormControl('', [Validators.required]);
   constructor(private usuarioService: UsuarioService, private roleService: RoleService, private route: Router) { }
   ngOnInit() {
     this.roleService.getAll().subscribe(response => {
       this.roles = JSON.parse(JSON.stringify(response));
-      console.log(this.roles);
     });
   }
   NewUser() {
-    this.usuario.roleId = this.selectRoleId;
-    console.log(this.usuario);
+    this.usuario.roleIds = this.selectedRoles;
     this.usuarioService.post(this.usuario)
       .subscribe();
     this.route.navigate(['republica']);

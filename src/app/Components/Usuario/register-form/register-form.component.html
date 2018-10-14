@@ -21,16 +21,17 @@
       </mat-form-field>
       
       <mat-form-field>
-         <mat-select [(value)]="selectRoleId">
+         <mat-select [(value)]="selectedRoles" multiple placeholder="Permissão" [formControl]="permissionControl" required>
           <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.roleName }}</mat-option>
         </mat-select>
+        <mat-error *ngIf="permissionControl.hasError('required')">Permissão é obrigatória</mat-error>
       </mat-form-field>
       
     </div>
     <div class="centralize">
       <button mat-flat-button [disabled]="!f.valid" (click)="NewUser()">Novo Usuário</button>
       <!-- Inserir link no text abaixo -->
-      <p [routerLink]="['/login']" routerLinkActive="router-link-active" >Já tem cadastro? se identifique aqui</p>
+      <p>Já tem cadastro? <a  [routerLink]="['/login']" routerLinkActive="router-link-active"> Faça login aqui</a> </p>
     </div>
   </form>
 </div>
