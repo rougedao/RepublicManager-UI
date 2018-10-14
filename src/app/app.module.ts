@@ -1,15 +1,22 @@
-import { RepublicaService } from './services/republica.service';
+import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
+import { AppComponent } from './Components/app/app.component';
+import { RepublicaComponent } from './Components/Republic/republica-form/republica-form.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
+import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
+import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
 import { AuthGuard } from './security/auth.guard';
+import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
+import { RepublicaService } from './services/republica.service';
+
 import { BaseService } from './services/base.service';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppErrorHandler } from './global-error-handler';
 import { ErrorHandler } from '@angular/core';
-import { RegisterComponent } from './Components/Usuario/register-form/register-form.component';
-import { RepublicaComponent } from './Components/Republic/republica-form/republica-form.component';
 import {MatSelectModule} from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
-import { AppComponent } from './app/../Components/app/app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -27,17 +34,11 @@ import { FormsModule } from '@angular/forms';
 import { UsuarioService } from './services/usuario.service';
 import { AuthenticationService } from './services/authentication.service';
 import { MatButtonModule } from '../../node_modules/@angular/material/button';
-import { DinamicTableComponent } from './Components/shared/dinamic-table/dinamic-table.component';
-import { DinamicListComponent } from './Components/shared/dinamic-list/dinamic-list.component';
-import { LoginComponent } from './Components/Usuario/login-form/login-form.component';
 import { errorHandler } from '@angular/platform-browser/src/browser';
-import { PageNotFoundComponent } from './Components/shared/page-not-found/page-not-found.component';
-import { RepublicaListComponent } from './Components/Republic/republica-list/republica-list.component';
-import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
-import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 import { environment } from '../environments/environment';
-import { NavbarComponent } from './Components/navbar/navbar.component';
 import { RoleService } from './services/role.service';
+import { LoginComponent } from './Components/Usuario/login-form/login-form.component';
+import { UserNotAuthorizedComponent } from './Components/shared/user-not-authorized/user-not-authorized.component';
 
 
 export function tokenGetter() {
@@ -51,6 +52,7 @@ export function tokenGetter() {
     RepublicaComponent,
     DinamicListComponent,
     RegisterComponent,
+    DinamicListComponent,
     DinamicTableComponent,
     PageNotFoundComponent,
     RepublicaListComponent,

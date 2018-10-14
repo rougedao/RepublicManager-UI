@@ -36,7 +36,9 @@ export class LoginComponent implements OnInit {
     Nome: '',
     Email: '',
     Senha: '',
-    Id: 0
+    Id: 0,
+    // roles: [],
+    roleId: 0
   };
 
   ngOnInit() {  }

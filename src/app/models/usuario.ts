@@ -1,3 +1,5 @@
+import { Role } from './role';
+
 export class Usuario {
     Id: number;
     Login: string;
@@ -7,5 +9,5 @@ export class Usuario {
     ContaId?: number;
     RepublicaId?: number;
     Email: string;
-
+    roleId: number;
 }

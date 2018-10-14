@@ -21,14 +21,11 @@
       </mat-form-field>
       
       <mat-form-field>
-         <mat-select placeholder="Permissão">
-          <mat-option *ngFor="let role of roles" [value]="roles.roleName">
-            {{role.roleName}}
-          </mat-option>
+         <mat-select [(value)]="selectRoleId">
+          <mat-option *ngFor="let role of roles" [value]="role.id">{{ role.roleName }}</mat-option>
         </mat-select>
       </mat-form-field>
       
-  
     </div>
     <div class="centralize">
       <button mat-flat-button [disabled]="!f.valid" (click)="NewUser()">Novo Usuário</button>
