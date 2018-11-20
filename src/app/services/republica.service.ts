@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RepublicaService extends BaseService {
   constructor(http: HttpClient) {
-    const apiUrl = 'http://localhost:61209/api/republica';
+    const apiUrl = 'http://localhost:61210/api/republica';
     super(apiUrl, http);
   }
 }
