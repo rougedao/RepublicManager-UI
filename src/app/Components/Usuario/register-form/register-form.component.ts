@@ -24,6 +24,7 @@ export class RegisterComponent implements OnInit {
   };
   selectedRoles = this.usuario.roleIds;
   permissionControl = new FormControl('', [Validators.required]);
+
   constructor(private usuarioService: UsuarioService, private roleService: RoleService, private route: Router) { }
   ngOnInit() {
     this.roleService.getAll().subscribe(response => {

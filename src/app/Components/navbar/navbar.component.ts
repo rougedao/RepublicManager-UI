@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UsuarioService } from './../../services/usuario.service';
 import { RepublicaService } from '../../services/republica.service';
@@ -12,15 +13,11 @@ import { getCurrentQueries } from '@angular/core/src/render3/instructions';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(private usuarioService: UsuarioService, private republicaService: RepublicaService
-    , private router: Router, private jwt: JwtHelperService) { }
-  readonly decodedToken = this.jwt.decodeToken(localStorage.getItem('jwt'));
-  readonly currentUser: string = this.decodedToken.unique_name[0];
+  constructor(private usuarioService: UsuarioService,
+    private republicaService: RepublicaService, private authService: AuthenticationService) { }
   ngOnInit() {
-    console.log(this.jwt.decodeToken(localStorage.getItem('jwt')));
   }
   logOut() {
-    localStorage.removeItem('jwt');
-    this.router.navigate(['/login']);
+    this.authService.logOut();
   }
 }

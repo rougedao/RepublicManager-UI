@@ -89,7 +89,7 @@ export function tokenGetter() {
       { path: 'register', component: RegisterComponent },
       { path: 'republica', component: RepublicaListComponent, canActivate : [AuthGuard] },
       { path: 'UserNotAuthorized', component: UserNotAuthorizedComponent },
-      { path: 'navbar', component: NavbarComponent, canActivate : [AuthGuard] },
+      { path: 'navbar', component: NavbarComponent, canActivate : [AuthGuard], data: {expectedRole: 'Inquilino'} },
       { path: 'shoppingCart', component: ShoppingCartComponent , canActivate : [AuthGuard] },
       { path: '**', component: PageNotFoundComponent }
     ]),

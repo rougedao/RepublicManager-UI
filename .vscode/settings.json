@@ -4,7 +4,6 @@
     ".editorconfig": true,
     ".gitignore": true,
     "package-lock.json": true,
-    "README.md": true,
     ".vscode": true,
     "e2e": true,
     "src\\main.ts": true,

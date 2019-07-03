@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     Senha: '',
     Id: 0,
     // roles: [],
-    roleId: 0
+    roleIds: 0
   };
 
   ngOnInit() {  }
@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         this.invalidLogin = false;
         const token = (<any>response).accessToken;
         localStorage.setItem('jwt', token);
+        console.log('Authentication Successful');
         this.router.navigate(['/navbar']);
       }
     }, err => {
