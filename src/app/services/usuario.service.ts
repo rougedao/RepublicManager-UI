@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class UsuarioService extends BaseService {
   constructor(http: HttpClient) {
-    const apiUrl = 'http://localhost:61209/api/usuario';
+    const apiUrl = 'http://localhost:61210/api/usuario';
     super(apiUrl, http);
   }
 }
