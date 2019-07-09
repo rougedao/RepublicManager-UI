@@ -6,6 +6,13 @@ This app will help you:
 2. Share Daily Taks
 3. Manage Expenses in a shared Location
 4. Create Profiles for "Republics(any share location)" for administrator and regular users
+5. Manage User accounts
+6. Manage Roles 
+7. Manage Shared Location Info
+8. Manage Rules
+9. Manage Tasks
+10. Manage Notices
+11. Manage Bills
 
 # Made with #
 
