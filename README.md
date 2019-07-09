@@ -11,9 +11,11 @@ This app will help you:
 
 1. Angular 7+
 2. Nativescript
-3. Javascript ES6+
-4. Html
-5. CSS
+3. Material Design
+4. JWT-Authenticated
+5. Javascript ES6+
+6. Html
+7. CSS
 
 # How to Run #
 
